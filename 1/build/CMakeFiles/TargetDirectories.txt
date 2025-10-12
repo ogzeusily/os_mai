@@ -1,5 +1,0 @@
-/Users/ogzeus/OOP-207-MAI-Autumn/os_mai/1/build/CMakeFiles/parent.dir
-/Users/ogzeus/OOP-207-MAI-Autumn/os_mai/1/build/CMakeFiles/child1.dir
-/Users/ogzeus/OOP-207-MAI-Autumn/os_mai/1/build/CMakeFiles/child2.dir
-/Users/ogzeus/OOP-207-MAI-Autumn/os_mai/1/build/CMakeFiles/edit_cache.dir
-/Users/ogzeus/OOP-207-MAI-Autumn/os_mai/1/build/CMakeFiles/rebuild_cache.dir

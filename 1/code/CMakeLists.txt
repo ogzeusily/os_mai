@@ -1,0 +1,19 @@
+cmake_minimum_required(VERSION 3.10)
+project(OS_MAI_207_LAB_1 C)
+
+set(CMAKE_C_STANDARD 99)
+set(CMAKE_C_STANDARD_REQUIRED ON)
+
+# Добавляем корневую директорию в пути включения
+include_directories(${CMAKE_CURRENT_SOURCE_DIR})
+
+# Дочерние процессы одинаковы для обеих платформ
+add_executable(child1 child1.c)
+add_executable(child2 child2.c)
+
+# Основная программа с платформозависимой реализацией
+if(WIN32)
+    add_executable(parent parent.c win/os_windows.c)
+else()
+    add_executable(parent parent.c linux/os_linux.c)
+endif()

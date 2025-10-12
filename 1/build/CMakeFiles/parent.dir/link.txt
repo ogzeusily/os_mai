@@ -1,1 +1,0 @@
-/usr/bin/cc  -arch arm64 -Wl,-search_paths_first -Wl,-headerpad_max_install_names CMakeFiles/parent.dir/parent.c.o CMakeFiles/parent.dir/linux/os_linux.c.o -o parent
