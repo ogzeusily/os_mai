@@ -1,3 +1,4 @@
 {
-    "cmake.sourceDirectory": "/Users/ogzeus/OOP-207-MAI-Autumn/os_mai/1"
+    "cmake.sourceDirectory": "/Users/ogzeus/OOP-207-MAI-Autumn/os_mai/1",
+    "cmake.ignoreCMakeListsMissing": true
 }

@@ -1,0 +1,167 @@
+\section{Исходная программа}
+
+\begin{center}
+\lstinputlisting[language=C++,caption=parent.c,captionpos=b]{code/parent.c}
+\end{center}
+
+\begin{center}
+\lstinputlisting[language=C++,caption=child1.c,captionpos=b]{code/child1.c}
+\end{center}
+
+\begin{center}
+\lstinputlisting[language=C++,caption=child2.c,captionpos=b]{code/child2.cpp}
+\end{center}
+
+\begin{center}
+\lstinputlisting[language=C++,caption=os\_linux.c,captionpos=b]{code/linux/os\_linux.c}
+\end{center}
+
+\begin{center}
+\lstinputlisting[language=C++,caption=os\_linux.h,captionpos=b]{code/linux/os\_linux.h}
+\end{center}
+
+\begin{center}
+\lstinputlisting[language=C++,caption=win\_api.h,captionpos=b]{code/win/win\_api.h}
+\end{center}
+
+\begin{center}
+\lstinputlisting[language=C++,caption=os\_windows.c,captionpos=b]{code/win/os\_windows.c}
+\end{center}
+
+\section{Strace}
+\begin{lstlisting}
+SYSCALL(args)               = return
+Введите строку: crossarch_trap(0x0, 0x0, 0x0)          = -1 Err#45
+csrctl(0x0, 0x16BA3F2BC, 0x4)           = -1 Err#1
+proc_info(0xF, 0x26FC, 0x0)             = 0 0
+thread_selfid(0x0, 0x0, 0x0)            = 45287 0
+crossarch_trap(0x0, 0x0, 0x0)           = -1 Err#45
+csrctl(0x0, 0x16BA3F1DC, 0x4)           = -1 Err#1
+crossarch_trap(0x0, 0x0, 0x0)           = -1 Err#45
+fsgetpath(0x16BA3F4D0, 0x400, 0x16BA3F3A8)         = 14 0
+shared_region_check_np(0x16BA3F4C0, 0x0, 0x0)       = 0 0
+getpid(0x0, 0x0, 0x0)                   = 9980 0
+munmap(0x10452C000, 0x9C000)            = 0 0
+munmap(0x1045C8000, 0x8000)             = 0 0
+munmap(0x1045D0000, 0x4000)             = 0 0
+munmap(0x1045D4000, 0x4000)             = 0 0
+munmap(0x1045D8000, 0x24000)            = 0 0
+munmap(0x1045FC000, 0x60000)            = 0 0
+crossarch_trap(0x0, 0x0, 0x0)           = -1 Err#45
+open(".\0", 0x100000, 0x0)              = 3 0
+fcntl(0x3, 0x32, 0x16BA3EA38)           = 0 0
+close(0x3)                              = 0 0
+fsgetpath(0x16BA3EA48, 0x400, 0x16BA3EA28)         = 60 0
+fsgetpath(0x16BA3EA58, 0x400, 0x16BA3EA38)         = 14 0
+csrctl(0x0, 0x16BA3EE5C, 0x4)           = -1 Err#1
+__mac_syscall(0x1815C909F, 0x2, 0x16BA3ED90)       = 0 0
+csrctl(0x0, 0x16BA3EE6C, 0x4)           = -1 Err#1
+sysctl([unknown, 3, 0, 0, 0, 0] (2), 0x16BA3EDE8, 0x16BA3EDE0, 0x1815C0012, 0x20)          = 0 0
+sysctl([unknown, 100, 101, 0, 0, 0] (3), 0x16BA3EE7C, 0x16BA3EE70, 0x0, 0x0)    = 0 0
+__mac_syscall(0x1815C5EE5, 0x5A, 0x16BA3EE00)       = 0 0
+sysctl([unknown, 3, 0, 0, 0, 0] (2), 0x16BA3E358, 0x16BA3E350, 0x1815C7BD8, 0xD = 0 0
+sysctl([CTL_KERN, 148, 0, 0, 0, 0] (2), 0x16BA3E408, 0x16BA3E400, 0x0, 0x0)    = 0 0
+open("/\0", 0x20100000, 0x0)            = 3 0
+openat(0x3, "System/Cryptexes/OS\0", 0x100000, 0x0)         = 4 0
+dup(0x4, 0x0, 0x0)                      = 5 0
+fstatat64(0x4, 0x16BA3DEE1, 0x16BA3DE50)           = 0 0
+openat(0x4, "System/Library/dyld/\0", 0x100000, 0x0)       = 6 0
+fcntl(0x6, 0x32, 0x16BA3DEE0)           = 0 0
+dup(0x6, 0x0, 0x0)                      = 7 0
+dup(0x5, 0x0, 0x0)                      = 8 0
+close(0x3)                              = 0 0
+close(0x5)                              = 0 0
+close(0x4)                              = 0 0
+close(0x6)                              = 0 0
+__mac_syscall(0x1815C909F, 0x2, 0x16BA3E8C0)       = 0 0
+shared_region_check_np(0x16BA3E8F8, 0x0, 0x0)      = 0 0
+fsgetpath(0x16BA3EA80, 0x400, 0x16BA3EA0C)         = 82 0
+fcntl(0x8, 0x32, 0x16BA3EA80)           = 0 0
+close(0x8)                              = 0 0
+close(0x7)                              = 0 0
+stat64("/Users/ogzeus/OOP-207-MAI-Autumn/os_mai/1/code/build/parent\0", 0x16BA3E5F0, 0x0)          = 0 0
+open("/Users/ogzeus/OOP-207-MAI-Autumn/os_mai/1/code/build/parent\0", 0x0, 0x0) = 3 0
+mmap(0x0, 0x8728, 0x1, 0x40002, 0x3, 0x0)          = 0x1043CC000 0
+fcntl(0x3, 0x32, 0x16BA3E718)           = 0 0
+munmap(0x1043CC000, 0x8728)             = 0 0
+close(0x3)                              = 0 0
+stat64("/Users/ogzeus/OOP-207-MAI-Autumn/os_mai/1/code/build/parent\0", 0x16BA3EB60, 0x0)          = 0 0
+stat64("/usr/lib/libSystem.B.dylib\0", 0x16BA3DA90, 0x0)          = -1 Err#2
+stat64("/System/Volumes/Preboot/Cryptexes/OS/usr/lib/libSystem.B.dylib\0", 0x16BA3DA40, 0x0)          = -1 Err#2
+open("/Users/ogzeus/OOP-207-MAI-Autumn/os_mai/1/code/build/parent\0", 0x0, 0x0) = 3 0
+__mac_syscall(0x1815C909F, 0x2, 0x16BA3BB40)       = 0 0
+map_with_linking_np(0x16BA3B9F0, 0x1, 0x16BA3BA20)         = 0 0
+close(0x3)                              = 0 0
+mprotect(0x1043C4000, 0x4000, 0x1)     = 0 0
+getfsstat64(0x0, 0x0, 0x2)             = 11 0
+getfsstat64(0x1043EC060, 0x5D28, 0x2)  = 11 0
+getattrlist("/\0", 0x16BA3B320, 0x16BA3B290)       = 0 0
+open("/dev/dtracehelper\0", 0x2, 0x0)  = 3 0
+ioctl(0x3, 0x80086804, 0x16BA3B268)    = 0 0
+close(0x3)                              = 0 0
+shared_region_check_np(0xFFFFFFFFFFFFFFFF, 0x0, 0x0)       = 0 0
+access("/AppleInternal/XBS/.isChrooted\0", 0x0, 0x0)       = -1 Err#2
+bsdthread_register(0x1818D2B78, 0x1818D2B6C, 0x4000)       = 1073746399 0
+getpid(0x0, 0x0, 0x0)                  = 9980 0
+shm_open(0x181767C51, 0x0, 0x6BA3B910) = 3 0
+fstat64(0x3, 0x16BA3B8D0, 0x0)         = 0 0
+mmap(0x0, 0x8000, 0x1, 0x40001, 0x3, 0x0)          = 0x1043D4000 0
+close(0x3)                              = 0 0
+csops(0x26FC, 0x0, 0x16BA3BA2C)        = 0 0
+ioctl(0x2, 0x4004667A, 0x16BA3B99C)    = 0 0
+mprotect(0x1043E4000, 0x4000, 0x0)     = 0 0
+mprotect(0x1043F0000, 0x4000, 0x0)     = 0 0
+mprotect(0x1043F4000, 0x4000, 0x0)     = 0 0
+mprotect(0x104400000, 0x4000, 0x0)     = 0 0
+mprotect(0x104404000, 0x4000, 0x0)     = 0 0
+mprotect(0x104410000, 0x4000, 0x0)     = 0 0
+mprotect(0x1043DC000, 0xC8, 0x1)       = 0 0
+mprotect(0x1043DC000, 0xC8, 0x3)       = 0 0
+mprotect(0x1043DC000, 0xC8, 0x1)       = 0 0
+mprotect(0x104414000, 0x4000, 0x1)     = 0 0
+mprotect(0x104418000, 0xC8, 0x1)       = 0 0
+mprotect(0x104418000, 0xC8, 0x3)       = 0 0
+mprotect(0x104418000, 0xC8, 0x1)       = 0 0
+mprotect(0x1043DC000, 0xC8, 0x3)       = 0 0
+mprotect(0x1043DC000, 0xC8, 0x1)       = 0 0
+mprotect(0x104414000, 0x4000, 0x3)     = 0 0
+mprotect(0x104414000, 0x4000, 0x1)     = 0 0
+issetugid(0x0, 0x0, 0x0)               = 0 0
+getentropy(0x16BA3AF68, 0x20, 0x0)     = 0 0
+getattrlist("/Users/ogzeus/OOP-207-MAI-Autumn/os_mai/1/code/build/parent\0", 0x16BA3B8A0, 0x16BA3B8BC)          = 0 0
+access("/Users/ogzeus/OOP-207-MAI-Autumn/os_mai/1/code/build\0", 0x4, 0x0)    = 0 0
+open("/Users/ogzeus/OOP-207-MAI-Autumn/os_mai/1/code/build\0", 0x0, 0x0)    = 3 0
+fstat64(0x3, 0x159604540, 0x0)         = 0 0
+csrctl(0x0, 0x16BA3BA7C, 0x4)          = 0 0
+fcntl(0x3, 0x32, 0x16BA3B788)          = 0 0
+close(0x3)                              = 0 0
+open("/Users/ogzeus/OOP-207-MAI-Autumn/os_mai/1/code/build/Info.plist\0", 0x0, 0x0)         = -1 Err#2
+proc_info(0x2, 0x26FC, 0xD)            = 64 0
+csops_audittoken(0x26FC, 0x10, 0x16BA3BB00)        = 0 0
+sysctl([unknown, 3, 0, 0, 0, 0] (2), 0x16BA3BE88, 0x16BA3BE80, 0x1853E40D7, 0x15)          = 0 0
+sysctl([CTL_KERN, 146, 0, 0, 0, 0] (2), 0x16BA3BF18, 0x16BA3BF10, 0x0, 0x0)    = 0 0
+fstat64(0x1, 0x16BA3E7F0, 0x0)         = 0 0
+ioctl(0x1, 0x4004667A, 0x16BA3E83C)    = 0 0
+fstat64(0x0, 0x16BA3E8C0, 0x0)         = 0 0
+ioctl(0x0, 0x4004667A, 0x16BA3E90C)    = 0 0
+write_nocancel(0x1, "Введите строку: ", 0x1D)          = 29 0
+Hello   WORLD!
+Результат: hello world!
+read_nocancel(0x0, "Hello   WORLD!\n\0", 0x1000)          = 15 0
+pipe(0x0, 0x0, 0x0)                    = 3 0
+pipe(0x0, 0x0, 0x0)                    = 5 0
+pipe(0x0, 0x0, 0x0)                    = 7 0
+fork()                                  = 10185 0
+fork()                                  = 10186 0
+close(0x3)                              = 0 0
+close(0x5)                              = 0 0
+close(0x6)                              = 0 0
+close(0x8)                              = 0 0
+write(0x4, "Hello   WORLD!\n\0", 0xF)  = 15 0
+close(0x4)                              = 0 0
+wait4(0x27C9, 0x0, 0x0)                = 10185 0
+wait4(0x27CA, 0x0, 0x0)                = 10186 0
+read(0x7, "hello world!\n\0", 0x3FF)   = 13 0
+write_nocancel(0x1, "Результат: hello world!\n", 0x21)          = 33 0
+close(0x7)                              = 0 0
+\end{lstlisting}
