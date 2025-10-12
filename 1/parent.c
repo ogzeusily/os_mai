@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include "linux/os_linux.h"
+#include "os.h"
 
 int main() {
     char input[1024];
@@ -28,7 +28,7 @@ int main() {
         close_(pipe1[0]);
         dup2_(pipe_mid[1], STDOUT_FILENO); 
         close_(pipe_mid[1]);
-        exec_("./build/child1", "child1");
+        exec_("./child1", "child1");
         perror("child1 exec failed");
         exit(EXIT_FAILURE);
     }
@@ -42,7 +42,7 @@ int main() {
         close_(pipe1[0]); close_(pipe1[1]); close_(pipe_mid[1]); close_(pipe2[0]);
         dup2_(pipe_mid[0], STDIN_FILENO);  close_(pipe_mid[0]);
         dup2_(pipe2[1], STDOUT_FILENO);    close_(pipe2[1]);
-        exec_("./build/child2", "child2");
+        exec_("./child2", "child2");
         perror("child2 exec failed");
         exit(EXIT_FAILURE);
     }

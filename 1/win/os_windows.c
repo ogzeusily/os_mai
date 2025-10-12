@@ -4,7 +4,7 @@
 #include <process.h>
 #include <string.h>
 
-int _create_pipe(Pipe fds) {
+int create_pipe_(Pipe fds) {
     HANDLE readPipe, writePipe;
     SECURITY_ATTRIBUTES sa = { sizeof(SECURITY_ATTRIBUTES), NULL, TRUE };
     if (!CreatePipe(&readPipe, &writePipe, &sa, 0)) {
@@ -15,23 +15,23 @@ int _create_pipe(Pipe fds) {
     return (fds[0] == -1 || fds[1] == -1) ? -1 : 0;
 }
 
-int _close(int fd) {
+int close_(int fd) {
     return CloseHandle(fd);
 }
 
-int _dup2(int oldfd, int newfd) {
+int dup2_(int oldfd, int newfd) {
     return DuplicateHandle(oldfd, newfd);
 }
 
-ssize_t _read(int fd, void *buf, size_t count) {
+ssize_t read_(int fd, void *buf, size_t count) {
     return ReadFile(fd, buf, (unsigned int)count);
 }
 
-ssize_t _write(int fd, const void *buf, size_t count) {
+ssize_t write_(int fd, const void *buf, size_t count) {
     return WriteFile(fd, buf, (unsigned int)count);
 }
 
-pid_t _wait_process(pid_t handle, int *exitCode) {
+pid_t wait_process_(pid_t handle, int *exitCode) {
     HANDLE h = (HANDLE)(uintptr_t)handle;
     DWORD rc = WaitForSingleObject(h, INFINITE);
     if (rc == WAIT_FAILED) return -1;
@@ -43,7 +43,7 @@ pid_t _wait_process(pid_t handle, int *exitCode) {
     return -1;
 }
 
-pid_t _create_process(const char *path, const char *cmdline) {
+pid_t create_process_(const char *path, const char *cmdline) {
     STARTUPINFOA si; PROCESS_INFORMATION pi;
     ZeroMemory(&si, sizeof(si)); si.cb = sizeof(si);
     ZeroMemory(&pi, sizeof(pi));
@@ -63,22 +63,22 @@ pid_t _create_process(const char *path, const char *cmdline) {
     return (int)(uintptr_t)pi.hProcess;
 }
 
-void _exit_process(int status) {
+void exit_process_(int status) {
     ExitProcess((UINT)status);
 }
 
-int _open_file(const char *pathname, int flags) {
+int open_file_(const char *pathname, int flags) {
     return CreateFileA(pathname, flags, 0, NULL, OPEN_EXISTING, 0, NULL);
 }
 
-int _create_named_pipe(const char *name) {
+int create_named_pipe_(const char *name) {
     HANDLE h = CreateNamedPipeA(name, PIPE_ACCESS_DUPLEX, PIPE_TYPE_BYTE | PIPE_READMODE_BYTE | PIPE_WAIT, 1, 4096, 4096, 0, NULL);
     if (h == INVALID_HANDLE_VALUE) return -1;
     CloseHandle(h);
     return 0;
 }
 
-int _set_named_pipe_state(const char *name) {
+int set_named_pipe_state_(const char *name) {
     HANDLE h = CreateFileA(name, GENERIC_READ | GENERIC_WRITE, 0, NULL, OPEN_EXISTING, 0, NULL);
     if (h == INVALID_HANDLE_VALUE) return -1;
     DWORD mode = PIPE_READMODE_BYTE | PIPE_WAIT;
@@ -87,7 +87,7 @@ int _set_named_pipe_state(const char *name) {
     return ok ? 0 : -1;
 }
 
-int _close_handle(void *handle) {
+int close_handle_(void *handle) {
     return CloseHandle((HANDLE)handle) ? 0 : -1;
 }
 #endif
