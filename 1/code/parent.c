@@ -12,7 +12,6 @@ int main() {
     }
     
     char input[1024];
-    printf("Введите строку: ");
     if (!fgets(input, sizeof(input), stdin)) {
         perror("fgets");
         exit(EXIT_FAILURE);
@@ -66,7 +65,7 @@ int main() {
     ssize_t n = os_read(pipe2[0], result, sizeof(result) - 1);
     if (n > 0) {
         result[n] = '\0';
-        printf("Результат: %s", result);
+        printf("%s", result);
     }
     os_close(pipe2[0]);
 
