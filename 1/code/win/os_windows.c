@@ -78,13 +78,13 @@ static HANDLE child_handles[10];
 static int child_count = 0;
 
 pid_t os_fork(void) {
-    char exe_path[MAX_PATH];
+    char exe_path[1024];
     if (GetModuleFileNameA(NULL, exe_path, MAX_PATH) == 0) {
         fprintf(stderr, "os_fork: failed to get executable path, error: %lu\n", GetLastError());
         return -1;
     }
     
-    char cmdline[MAX_PATH + 50];
+    char cmdline[1024];
     snprintf(cmdline, sizeof(cmdline), "%s --child --fork=%d", exe_path, fork_count);
     
     STARTUPINFOA si;
@@ -134,7 +134,6 @@ int os_is_child_process(void) {
 }
 
 void os_init_child_process(void) {
-    // Check command line arguments to see if we're a child process
     int argc;
     LPWSTR* argv = CommandLineToArgvW(GetCommandLineW(), &argc);
     if (argv != NULL) {

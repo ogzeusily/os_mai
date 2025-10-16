@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include "os_linux.h"
+#include "win_api.h"
 
 int main() {
     os_init_child_process();
