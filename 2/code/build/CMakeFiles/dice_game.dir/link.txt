@@ -1,0 +1,1 @@
+/usr/bin/cc  -pthread -arch arm64 -Wl,-search_paths_first -Wl,-headerpad_max_install_names CMakeFiles/dice_game.dir/main.c.o CMakeFiles/dice_game.dir/linux/os_linux.c.o -o dice_game
