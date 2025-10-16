@@ -1,0 +1,34 @@
+\section{Исходная программа}
+
+\begin{center}
+\lstinputlisting[language=C,caption=main.c,captionpos=b]{code/main.c}
+\end{center}
+
+\begin{center}
+\lstinputlisting[language=C,caption=os.h,captionpos=b]{code/os.h}
+\end{center}
+
+\begin{center}
+\lstinputlisting[language=C,caption=os\_linux.c,captionpos=b]{code/linux/os\_linux.c}
+\end{center}
+
+\begin{center}
+\lstinputlisting[language=C,caption=os\_linux.h,captionpos=b]{code/linux/os\_linux.h}
+\end{center}
+
+\section{Пример вывода программы:}
+\begin{lstlisting}
+(base) ogzeus@MacBook-Pro-Artem-2 build % ./dice_game 1000 0 0 0 100000 4
+sequential...
+parallel...
+T1:          2823.79 ms
+T4:          2030.60 ms
+Speedup:     1.39
+Efficiency:  34.77%
+Amdahl:      1.39
+Gustafson:   2.12
+CPU util:    99.99%
+SHANCY 1 IGROKA: 49.96%
+SHANCY 2 IGROKA: 49.67%
+SHANCY NICHI:    0.37%
+\end{lstlisting}
